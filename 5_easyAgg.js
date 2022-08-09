@@ -41,6 +41,14 @@ async function run() {
             "format": "yyyy-MM-dd HH:mm"
           }
         },
+        // 获取 include 中的词组数量
+        "result": {
+          "terms": {
+            "field": "mark_info_paths",
+            "include": "(/金融/风声/.*)|(/全局废文/.*)",
+            "size": 100
+          }
+        },
         // 相似文数量排名前多少
         "hotArticle": {
           "terms": {
