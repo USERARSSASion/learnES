@@ -1,0 +1,134 @@
+{
+  "from": 0,
+  "size": 0,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "range": {
+            "created": {
+              "from": "2020/08/01 17:35:51 +08:00",
+              "to": "2020/08/31 17:35:51 +08:00",
+              "include_lower": true,
+              "include_upper": true,
+              "boost": 1.0
+            }
+          }
+        },
+        {
+          "query_string": {
+            "query": "\"人保车险\" OR \"人保财险\" OR \"人保财产险\" OR \"人保产险\" OR \"人民财产保险\"",
+            "fields": [
+              "title^1.0"
+            ],
+            "type": "best_fields",
+            "default_operator": "or",
+            "max_determinized_states": 10000,
+            "enable_position_increments": true,
+            "fuzziness": "AUTO",
+            "fuzzy_prefix_length": 0,
+            "fuzzy_max_expansions": 50,
+            "phrase_slop": 0,
+            "escape": false,
+            "auto_generate_synonyms_phrase_query": true,
+            "fuzzy_transpositions": true,
+            "boost": 1.0
+          }
+        },
+        {
+          "query_string": {
+            "query": "\"新疆\"",
+            "fields": [
+              "title^1.0"
+            ],
+            "type": "best_fields",
+            "default_operator": "and",
+            "max_determinized_states": 10000,
+            "enable_position_increments": true,
+            "fuzziness": "AUTO",
+            "fuzzy_prefix_length": 0,
+            "fuzzy_max_expansions": 50,
+            "phrase_slop": 0,
+            "escape": false,
+            "auto_generate_synonyms_phrase_query": true,
+            "fuzzy_transpositions": true,
+            "boost": 1.0
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "terms": {
+            "art_status": [
+              "DELETED"
+            ],
+            "boost": 1.0
+          }
+        },
+        {
+          "term": {
+            "project_info.deleted": {
+              "value": "YES",
+              "boost": 1.0
+            }
+          }
+        }
+      ],
+      "adjust_pure_negative": true,
+      "boost": 1.0
+    }
+  },
+  "_source": {
+    "includes": [
+      "body",
+      "channel",
+      "comments_count",
+      "created",
+      "emtl_tendency",
+      "imgs",
+      "media_type",
+      "media",
+      "modified",
+      "rel_level",
+      "rel",
+      "reposts_count",
+      "retweeted_status.comments_count",
+      "retweeted_status.created",
+      "retweeted_status.reposts_count",
+      "retweeted_status.text",
+      "retweeted_status.uri",
+      "retweeted_status.user.id",
+      "retweeted_status.user.profile_image_url",
+      "retweeted_status.user.screen_name",
+      "isLongText",
+      "pic_urls",
+      "text",
+      "keywords",
+      "title",
+      "uri",
+      "user",
+      "thumbnail_pic"
+    ],
+    "excludes": []
+  },
+  "track_total_hits": -1,
+  "aggregations": {
+    "title_tokens": {
+      "terms": {
+        "field": "title_tokens",
+        "size": 50,
+        "min_doc_count": 1,
+        "shard_min_doc_count": 0,
+        "show_term_doc_count_error": false,
+        "order": [
+          {
+            "_count": "desc"
+          },
+          {
+            "_key": "asc"
+          }
+        ]
+      }
+    }
+  }
+}

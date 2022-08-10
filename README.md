@@ -12,3 +12,74 @@
 | DELETE | localhost:9200/索引名称/类型名称/文档id         | 删除文档                                                                                  |
 | GET    | localhost:9200/索引名称/类型名称/文档id         | 查询文档通过文档 id                                                                       |
 | POST   | localhost:9200/索引名称/类型名称/_seaarch       | 查询所有数据                                                                              |
+
+
+### DSL基本用法
+
+相关链接：[https://blog.csdn.net/qq1021979964/article/details/106096726]()
+
+模糊查询时使用match，精准查询时使用term。
+
+term query：直接对关键词准确查找，该查询只适合keyword、numeric、date。
+
+```
+term：查询某个字段中含有某个关键词的文档。
+terms：查询某个字段中含有多个关键词的文档。
+```
+
+match query：对所查找的关键词进行分词，在根据分词匹配查找。
+
+```
+match_all：查询所有文档。
+multi_match：指定多个字段。
+match_phrase：短语匹配查询。
+```
+
+ES检索引擎会先分析查询字符串，从分析后的文本中构建短语查询，表示必须匹配短语中所有的分词，并保证各个分词的相对位置不变。
+
+from：从第几条数据开始查询。
+
+size：需要查询的个数。
+
+sort：实现排序，desc降序，asc升序。
+
+range：实现范围查询。（参数：from，to，include_lower，include_upper，boost）
+
+```
+include_lower：是否包含范围的左边界，默认true。
+include_upper：是否包含范围的右边界，默认true。
+```
+
+wildcard：允许使用通配符*和?进行查询
+
+```
+*：表示0或者多个字符
+?：表示任意一个字符
+```
+
+fuzzy：实现模糊查询
+
+```
+value：查询的关键字
+boost：查询的权值，默认值1.0
+min_similarity：设置匹配的最小相似度，默认值0.5，对于字符串，取值0-1（包括0和1），对于数值，取值可能大于1，对于日期，取值为1d,1m等，1d为1天。
+prefix_length：指明区分词项的共同前缀长度，默认0.
+max_expansions：查询中的词项可以扩展的数目，默认可以无限大。
+```
+
+filter是不计算相关性的，同时可以cache，所以filter效率高于query。
+
+```
+gte：>=（大于等于）
+gt：>（大于）
+lte：<=（小于等于）
+lt：<（小于）
+```
+
+bool过滤
+
+```
+must：必须满足的条件（and）
+should：可以满足也可以不满足的条件（or）
+must_not：不需要满足的条件（not）
+```
