@@ -79,3 +79,38 @@ async function run() {
 }
 
 run();
+
+// {
+//   "aggs" : {
+//     "age_terms" : {
+//       "terms" : { 
+//         "field" : "name",
+//         "size" : 10,      #size用来定义需要返回多个 buckets（防止太多），默认会全部返回。
+//         "order" : { "_count" : "asc" },  #根据文档计数排序，根据分组值排序（{ "_key" : "asc" }）
+//         "min_doc_count": 10,            #只返回文档个数不小于该值的 buckets
+//         "include" : ".*sport.*",        #包含过滤
+//         "exclude" : "water_.*",         #排除过滤
+//         "missing": "N/A" 
+//       }
+//     }
+//   }
+// }
+
+// {
+//   "aggs" : {
+//     "prices" : {
+//       "histogram" : {
+//         "field" : "price",      //字段，必须为数值类型
+//         "calendar_interval" : 50,       //分桶间距
+//         "min_doc_count" : 1,    //最少文档数桶过滤，只有不少于这么多文档的桶才会返回
+//         "extended_bounds" : { //范围扩展
+//           "min" : 0,
+//           "max" : 500
+//         },
+//         "order" : { "_count" : "desc" },//对桶排序，如果 histogram 聚合有一个权值聚合类型的"直接"子聚合，那么排序可以使用子聚合中的结果
+//         "keyed":true, //hash结构返回，默认以数组形式返回每一个桶
+//         "missing":0 //配置缺省默认值
+//       }
+//     }
+//   }
+// }

@@ -1,0 +1,87 @@
+{
+  "from": 0,
+  "size": 0,
+  "track_total_hits": true,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "exists": {
+            "field": "media_info_name"
+          }
+        }
+      ],
+      "must_not": []
+    }
+  },
+  "aggs": {
+    "tendency": {
+      "terms": {
+        "field": "tendency"
+      }
+    },
+    "relation_risks_entities": {
+      "nested": {
+        "path": "relation_risks_entities"
+      },
+      "aggs": {
+        "result": {
+          "terms": {
+            "field": "relation_risks_entities.risk_paths"
+          }
+        }
+      }
+    },
+    "fs_content_risks_entities": {
+      "nested": {
+        "path": "fs_content_risks_entities"
+      },
+      "aggs": {
+        "result": {
+          "terms": {
+            "field": "fs_content_risks_entities.risk_paths"
+          }
+        }
+      }
+    },
+    "yinbaojian_risks_entities": {
+      "nested": {
+        "path": "yinbaojian_risks_entities"
+      },
+      "aggs": {
+        "result": {
+          "terms": {
+            "field": "yinbaojian_risks_entities.risk_paths"
+          }
+        }
+      }
+    },
+    "media_risks_entities": {
+      "nested": {
+        "path": "media_risks_entities"
+      },
+      "aggs": {
+        "result": {
+          "terms": {
+            "field": "media_risks_entities.risk_paths"
+          }
+        }
+      }
+    },
+    "managers_entities": {
+      "nested": {
+        "path": "managers_entities"
+      },
+      "aggs": {
+        "result": {
+          "terms": {
+            "script": {
+                "lang": "painless",
+                "source": "doc['managers_entities.company_name'].value + '_' + doc['managers_entities.name'].value"
+              }
+          }
+        }
+      }
+    }
+  }
+}
