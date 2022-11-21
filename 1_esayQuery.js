@@ -43,3 +43,53 @@ run();
 /*
 Es 模糊查询， 分词的用match； 短语的用match_phrase；查询任意的，用wildcard通配符，注意查询的内容是否分词，分词的添加keyword，查询非空的情况，用*。
 */
+
+/*
+{
+	"track_total_hits": true,
+	"query": {
+		"bool": {
+		  //  "minimum_should_match": 1,
+			"must": [
+				{
+					"range": {
+						"created": {
+							"gte": "2022/01/01 00:00:00 +08:00",
+							"lte": "2022/11/15 23:59:59 +08:00"
+						}
+					}
+				},
+				{
+				    "term": {
+				        "user.screen_name": "FIFA世界杯"
+				    }
+				}
+			],
+			"must_not": [
+                {
+                  "exists": {
+                    "field": "user.id"
+                  }
+                }
+              ],
+			"should": [
+			    
+				{
+				    "term": {
+				        "user.biz": "6436872484"
+				    }
+				},
+				{
+				    "term": {
+				        "user.id": "6436872484"
+				    }
+				}
+			]
+		}
+	},
+	"from": 0,
+	"size": 10,
+	"sort": {},
+	"_source": []
+}
+*/
