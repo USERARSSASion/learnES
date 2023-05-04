@@ -1,0 +1,799 @@
+{
+	"paragraphs-app-202305": {
+		"aliases": {},
+		"mappings": {
+			"dynamic_date_formats": [
+				"yyyy/MM/dd HH:mm:ss z"
+			],
+			"dynamic_templates": [
+				{
+					"path_fields": {
+						"match": "*_paths",
+						"match_mapping_type": "string",
+						"mapping": {
+							"analyzer": "path-analyzer",
+							"fielddata": true
+						}
+					}
+				},
+				{
+					"token_fields": {
+						"match": "*_tokens",
+						"match_mapping_type": "string",
+						"mapping": {
+							"analyzer": "whitespace",
+							"fielddata": true
+						}
+					}
+				},
+				{
+					"text_fields": {
+						"match": "^((pre_|sub_)?title|text|body)$",
+						"match_pattern": "regex",
+						"mapping": {
+							"analyzer": "hanlp_index2",
+							"fielddata": true,
+							"type": "text"
+						}
+					}
+				},
+				{
+					"integers": {
+						"match": "*_(num|count)",
+						"match_mapping_type": "long",
+						"mapping": {
+							"type": "integer"
+						}
+					}
+				},
+				{
+					"string_fields": {
+						"match": "*",
+						"match_mapping_type": "string",
+						"mapping": {
+							"type": "keyword"
+						}
+					}
+				}
+			],
+			"properties": {
+				"alexa_pv": {
+					"type": "long"
+				},
+				"alexa_uv": {
+					"type": "long"
+				},
+				"art_status": {
+					"type": "keyword"
+				},
+				"author": {
+					"type": "keyword"
+				},
+				"body": {
+					"type": "text",
+					"analyzer": "hanlp_index2",
+					"fielddata": true
+				},
+				"car_entities": {
+					"properties": {
+						"brand": {
+							"type": "keyword"
+						},
+						"car_level": {
+							"type": "keyword"
+						},
+						"car_type": {
+							"type": "keyword"
+						},
+						"country": {
+							"type": "keyword"
+						},
+						"energy_type": {
+							"type": "keyword"
+						},
+						"manufacturer": {
+							"type": "keyword"
+						},
+						"origin": {
+							"type": "keyword"
+						},
+						"series": {
+							"type": "keyword"
+						},
+						"voter": {
+							"type": "keyword"
+						},
+						"votes_score": {
+							"type": "long"
+						}
+					}
+				},
+				"car_model": {
+					"properties": {
+						"brand": {
+							"type": "keyword"
+						},
+						"country": {
+							"type": "keyword"
+						},
+						"displacement": {
+							"type": "keyword"
+						},
+						"drive": {
+							"type": "keyword"
+						},
+						"energy": {
+							"type": "keyword"
+						},
+						"gearbox": {
+							"type": "keyword"
+						},
+						"hprice": {
+							"type": "long"
+						},
+						"level": {
+							"type": "keyword"
+						},
+						"lprice": {
+							"type": "long"
+						},
+						"mfc": {
+							"type": "keyword"
+						},
+						"mid": {
+							"type": "keyword"
+						},
+						"mode_production": {
+							"type": "keyword"
+						},
+						"model": {
+							"type": "keyword"
+						},
+						"structure": {
+							"type": "keyword"
+						}
+					}
+				},
+				"cate1": {
+					"type": "keyword"
+				},
+				"cate2": {
+					"type": "keyword"
+				},
+				"cate3": {
+					"type": "keyword"
+				},
+				"category": {
+					"type": "keyword"
+				},
+				"category_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"channel": {
+					"type": "keyword"
+				},
+				"city": {
+					"type": "keyword"
+				},
+				"classify_tag_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"collect_num": {
+					"type": "long"
+				},
+				"comment_num": {
+					"type": "long"
+				},
+				"comments_count": {
+					"type": "long"
+				},
+				"concern_basis": {
+					"properties": {
+						"basis": {
+							"type": "keyword"
+						},
+						"ents": {
+							"type": "keyword"
+						},
+						"tag": {
+							"type": "keyword"
+						}
+					}
+				},
+				"cont_type": {
+					"type": "keyword"
+				},
+				"content_gov_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"content_region_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"content_risks": {
+					"properties": {
+						"count": {
+							"type": "long"
+						},
+						"keywords": {
+							"type": "keyword"
+						},
+						"risk_level": {
+							"type": "keyword"
+						},
+						"risk_paths": {
+							"type": "text",
+							"analyzer": "path-analyzer",
+							"fielddata": true
+						}
+					}
+				},
+				"crawled": {
+					"type": "keyword"
+				},
+				"crawler": {
+					"type": "keyword"
+				},
+				"created": {
+					"type": "date",
+					"format": "yyyy/MM/dd HH:mm:ss z"
+				},
+				"doc_mentions": {
+					"type": "keyword"
+				},
+				"doc_score": {
+					"type": "long"
+				},
+				"doc_subject": {
+					"type": "keyword"
+				},
+				"doc_subject_basis": {
+					"type": "keyword"
+				},
+				"doc_subject_tokens": {
+					"type": "text",
+					"analyzer": "whitespace",
+					"fielddata": true
+				},
+				"domain": {
+					"type": "keyword"
+				},
+				"emtl_tendency": {
+					"type": "keyword"
+				},
+				"engagement_num": {
+					"type": "long"
+				},
+				"ent_code": {
+					"type": "keyword"
+				},
+				"ent_name": {
+					"type": "keyword"
+				},
+				"ent_research_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"guess_created": {
+					"type": "keyword"
+				},
+				"hash_tag": {
+					"type": "keyword"
+				},
+				"host": {
+					"type": "keyword"
+				},
+				"html_hash": {
+					"type": "keyword"
+				},
+				"html_simhash": {
+					"type": "keyword"
+				},
+				"icp_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"imgs": {
+					"type": "keyword"
+				},
+				"imgs_count": {
+					"type": "long"
+				},
+				"industry_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"ip_city": {
+					"type": "keyword"
+				},
+				"ip_country": {
+					"type": "keyword"
+				},
+				"ip_province": {
+					"type": "keyword"
+				},
+				"irrelevant_num": {
+					"type": "long"
+				},
+				"keywords": {
+					"type": "keyword"
+				},
+				"like_num": {
+					"type": "long"
+				},
+				"mark": {
+					"type": "keyword"
+				},
+				"mark_info_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"mark_obj": {
+					"properties": {
+						"media_level": {
+							"type": "keyword"
+						},
+						"media_weight": {
+							"type": "long"
+						},
+						"rank": {
+							"type": "long"
+						}
+					}
+				},
+				"mark_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"media": {
+					"type": "keyword",
+					"fields": {
+						"word": {
+							"type": "text",
+							"analyzer": "hanlp_index2"
+						}
+					}
+				},
+				"media_category": {
+					"type": "keyword"
+				},
+				"media_hao": {
+					"type": "keyword"
+				},
+				"media_industry_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"media_level": {
+					"type": "keyword"
+				},
+				"media_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"media_platform": {
+					"type": "keyword"
+				},
+				"media_rank": {
+					"type": "keyword"
+				},
+				"media_subject": {
+					"type": "keyword"
+				},
+				"media_tag": {
+					"type": "keyword"
+				},
+				"media_type": {
+					"type": "keyword"
+				},
+				"media_weight": {
+					"type": "keyword"
+				},
+				"modified": {
+					"type": "date",
+					"format": "yyyy/MM/dd HH:mm:ss z"
+				},
+				"negative_words": {
+					"properties": {
+						"freq": {
+							"type": "long"
+						},
+						"score": {
+							"type": "long"
+						},
+						"word": {
+							"type": "keyword"
+						}
+					}
+				},
+				"ocr_info": {
+					"properties": {
+						"image": {
+							"type": "keyword"
+						},
+						"text": {
+							"type": "text",
+							"analyzer": "hanlp_index2",
+							"fielddata": true
+						}
+					}
+				},
+				"pos_score": {
+					"type": "long"
+				},
+				"priority": {
+					"type": "keyword"
+				},
+				"project_id": {
+					"type": "keyword"
+				},
+				"projects": {
+					"type": "nested",
+					"properties": {
+						"customer_code": {
+							"type": "keyword"
+						},
+						"deleted": {
+							"type": "keyword"
+						},
+						"keywords_dict": {
+							"properties": {
+								"keyword": {
+									"type": "keyword"
+								},
+								"times": {
+									"type": "long"
+								}
+							}
+						},
+						"keywords_in_title": {
+							"type": "keyword"
+						},
+						"keywords_score": {
+							"type": "float"
+						},
+						"mail_sent": {
+							"type": "keyword"
+						},
+						"project_id": {
+							"type": "keyword"
+						},
+						"repository": {
+							"type": "keyword"
+						},
+						"sorted": {
+							"type": "long"
+						},
+						"tag1_paths": {
+							"type": "text",
+							"analyzer": "path-analyzer",
+							"fielddata": true
+						},
+						"tag_paths": {
+							"type": "text",
+							"analyzer": "path-analyzer",
+							"fielddata": true
+						},
+						"tendency": {
+							"type": "keyword"
+						},
+						"timestamp": {
+							"type": "long"
+						},
+						"topic_paths": {
+							"type": "text",
+							"analyzer": "path-analyzer",
+							"fielddata": true
+						}
+					}
+				},
+				"province": {
+					"type": "keyword"
+				},
+				"pub_source": {
+					"type": "keyword"
+				},
+				"race_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"rank": {
+					"type": "long"
+				},
+				"raw_title": {
+					"type": "keyword"
+				},
+				"read_num": {
+					"type": "long"
+				},
+				"ref_id": {
+					"type": "keyword"
+				},
+				"rel": {
+					"type": "keyword"
+				},
+				"rel_level": {
+					"type": "long"
+				},
+				"relevant_num": {
+					"type": "long"
+				},
+				"relevant_words": {
+					"type": "keyword"
+				},
+				"report_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"risk_words": {
+					"type": "keyword"
+				},
+				"share_num": {
+					"type": "long"
+				},
+				"shortlink": {
+					"type": "keyword"
+				},
+				"source_type": {
+					"type": "keyword"
+				},
+				"sport_member_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"sport_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"sport_race_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"sport_team_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"src": {
+					"type": "keyword"
+				},
+				"stock_code": {
+					"type": "keyword"
+				},
+				"stock_market_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				},
+				"stock_name": {
+					"type": "keyword"
+				},
+				"subject_vertical": {
+					"type": "keyword"
+				},
+				"summary": {
+					"type": "keyword"
+				},
+				"ted_score": {
+					"type": "long"
+				},
+				"text_count": {
+					"type": "long"
+				},
+				"ticks": {
+					"type": "long"
+				},
+				"time_exposed": {
+					"type": "date",
+					"format": "yyyy/MM/dd HH:mm:ss z"
+				},
+				"time_filtered": {
+					"type": "date",
+					"format": "yyyy/MM/dd HH:mm:ss z"
+				},
+				"time_grabbed": {
+					"type": "date",
+					"format": "yyyy/MM/dd HH:mm:ss z"
+				},
+				"time_indexed": {
+					"type": "date",
+					"format": "yyyy/MM/dd HH:mm:ss z"
+				},
+				"time_percolated": {
+					"type": "date",
+					"format": "yyyy/MM/dd HH:mm:ss z"
+				},
+				"time_queued": {
+					"type": "date",
+					"format": "yyyy/MM/dd HH:mm:ss z"
+				},
+				"title": {
+					"type": "text",
+					"fields": {
+						"raw": {
+							"type": "keyword"
+						}
+					},
+					"analyzer": "hanlp_index2"
+				},
+				"title_tokens": {
+					"type": "text",
+					"analyzer": "whitespace",
+					"fielddata": true
+				},
+				"uri": {
+					"type": "keyword"
+				},
+				"use_proxy": {
+					"type": "keyword"
+				},
+				"user": {
+					"properties": {
+						"biz": {
+							"type": "keyword"
+						},
+						"city": {
+							"type": "keyword"
+						},
+						"desc": {
+							"type": "keyword"
+						},
+						"description": {
+							"type": "keyword"
+						},
+						"doc_count": {
+							"type": "long"
+						},
+						"follower_num": {
+							"type": "long"
+						},
+						"gender": {
+							"type": "keyword"
+						},
+						"id_str": {
+							"type": "keyword"
+						},
+						"ip_region": {
+							"type": "keyword"
+						},
+						"location": {
+							"type": "keyword"
+						},
+						"name": {
+							"type": "keyword"
+						},
+						"nickname": {
+							"type": "keyword"
+						},
+						"portrait": {
+							"type": "keyword"
+						},
+						"profile_image_url": {
+							"type": "keyword"
+						},
+						"profile_img_url": {
+							"type": "keyword"
+						},
+						"province": {
+							"type": "keyword"
+						},
+						"red_id": {
+							"type": "keyword"
+						},
+						"screen_name": {
+							"type": "keyword"
+						},
+						"token": {
+							"type": "keyword"
+						},
+						"uid": {
+							"type": "keyword"
+						},
+						"url": {
+							"type": "keyword"
+						},
+						"user_name": {
+							"type": "keyword"
+						},
+						"v_name": {
+							"type": "keyword"
+						},
+						"verified_user_type": {
+							"type": "keyword"
+						}
+					}
+				},
+				"vertical": {
+					"type": "keyword"
+				},
+				"vertical_paths": {
+					"type": "text",
+					"analyzer": "path-analyzer",
+					"fielddata": true
+				}
+			}
+		},
+		"settings": {
+			"index": {
+				"refresh_interval": "300s",
+				"translog": {
+					"flush_threshold_size": "1g",
+					"sync_interval": "60s",
+					"durability": "async"
+				},
+				"provided_name": "paragraphs-app-202305",
+				"query": {
+					"default_field": [
+						"body",
+						"title"
+					]
+				},
+				"max_result_window": "100000",
+				"creation_date": "1682870523190",
+				"store": {
+					"type": "niofs"
+				},
+				"analysis": {
+					"analyzer": {
+						"hanlp_index2": {
+							"filter": [
+								"lowercase"
+							],
+							"type": "custom",
+							"tokenizer": "hanlp_index"
+						},
+						"path-analyzer": {
+							"tokenizer": "path-tokenizer"
+						}
+					},
+					"tokenizer": {
+						"path-tokenizer": {
+							"skip": "0",
+							"type": "path_hierarchy",
+							"replacement": "/",
+							"delimiter": "/"
+						}
+					}
+				},
+				"number_of_replicas": "1",
+				"uuid": "aSz_lZYYSyKP7OurmSZxwg",
+				"version": {
+					"created": "7030099"
+				},
+				"warmer": {
+					"enabled": "false"
+				},
+				"routing": {
+					"allocation": {
+						"total_shards_per_node": "3"
+					}
+				},
+				"number_of_shards": "3",
+				"merge": {
+					"scheduler": {
+						"max_thread_count": "8"
+					}
+				}
+			}
+		}
+	}
+}
