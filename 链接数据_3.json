@@ -1,0 +1,258 @@
+{
+  "id_site": 100658,
+  "id_article": 169012,
+  "hidden": false,
+  "position": 2,
+  "equalgroup": 6416106976,
+  "id_delivery": 9096157253,
+  "countrycode": "OM",
+  "countryname": "Oman",
+  "site_rank": {
+    "rank_global": 6300,
+    "rank_country": 2
+  },
+  "unix_timestamp": 1688141452,
+  "mediatype": {
+    "timemap": false,
+    "clip": false,
+    "hastext": true,
+    "haslogo": false,
+    "paywall": false,
+    "fulltext": true,
+    "text": "WEB"
+  },
+  "stimestamp": 459342195,
+  "stimestamp_index": 459342195,
+  "internal_search_reply": {
+    "id_site": 100658,
+    "id_article": 169012,
+    "text": "(d++) 9096157253 (d--)"
+  },
+  "local_time": {
+    "GMT": 1,
+    "text": "20230630T18:10:52+0200"
+  },
+  "local_rcf822_time": {
+    "text": "Fri, 30 Jun 2023 18:10:52 +0200"
+  },
+  "distribute_conditions": "",
+  "content_protected": 0,
+  "language": {
+    "encoding": "iso-639",
+    "text": "en"
+  },
+  "word_count": 352,
+  "first_source": {
+    "id": 1026286,
+    "name": "Times Of Oman",
+    "sitename": "Times Of Oman",
+    "url": "https://timesofoman.com",
+    "siteurl": "https://timesofoman.com"
+  },
+  "header": {
+    "matches": false,
+    "text": "No way am I going to get another 100: Allan Border reveals he has Parkinson's disease"
+  },
+  "summary": "  Melbourne : Former Australian captain Allan Border revealed that he has Parkinson's disease, a progressive nervous system disorder that affects movement.",
+  "body": "<p> Border, who turns 68 in July, said he was diagnosed with this disease in 2016. \"I walked into the neurosurgeon's and he said straight up, 'I am sorry to tell you but you have got Parkinson's'. Just the way you walked in Your arms straight down by your side, hanging not swinging.' He could just tell,\" said Border telling News Corp as quoted by ESPNCricinfo and Sydney Morning Herald.</p> <p> \"I am a pretty private person and I did not want people to feel sorry for me. Whether people care about you do not know. But I know there will come a day when people will notice.\"</p> <p> \"I get the feeling I am a hell of a lot better off than most. At the moment I am not scared, not about the immediate future anyway. I am 68. If I make 80, that will be a miracle. I have got a doctor friend and I said if I make 80, that will be a miracle.</p> <p> \"No way am I going to get another 100, that is for sure. I will just slip slowly into the west,\" concluded the batter.</p> <p> Border played 156 Test matches for Aussies between 1978-1994. He scored 11,174 runs at an average of 50.56. He scored 27 centuries and 63 half-centuries in Tests, with the best score of 205.</p> <p> He also played 273 ODIs, scoring 6,524 runs at an average of 30.62. He scored three centuries and 39 half-centuries, with the best score of 127*.</p> <p> He also took 39 Test wickets and 73 scalps in 50-over format with his useful spin bowling.</p> <p> He also led Australia to their first-ever Cricket World Cup title in 1987. During that tournament, he scored 183 runs in eight matches at an average of over 22 with a fifty. He also took six wickets.</p>",
+  "caption": {
+    "text": " "
+  },
+  "quotes": [],
+  "orig_url": "https://timesofoman.com/article/132827-no-way-am-i-going-to-get-another-100-allan-border-reveals-he-has-parkinsons-disease",
+  "url_common": "timesofoman.com",
+  "topics": [
+    {
+      "id": 13,
+      "linktype_max": 1,
+      "linktype_now": 1,
+      "metacat": 2,
+      "metacat_level": 0,
+      "text": "Rank 3"
+    },
+    {
+      "id": 20,
+      "linktype_max": 1,
+      "linktype_now": 1,
+      "metacat": 3,
+      "metacat_level": 0,
+      "text": "Open"
+    },
+    {
+      "id": 53,
+      "linktype_max": 1,
+      "linktype_now": 1,
+      "metacat": 5,
+      "metacat_level": 0,
+      "text": "Asia"
+    },
+    {
+      "id": 56,
+      "linktype_max": 1,
+      "linktype_now": 1,
+      "metacat": 5,
+      "metacat_level": 0,
+      "text": "Middle East"
+    },
+    {
+      "id": 172,
+      "linktype_max": 1,
+      "linktype_now": 1,
+      "metacat": 5,
+      "metacat_level": 1,
+      "text": "West Asia"
+    },
+    {
+      "id": 404,
+      "linktype_max": 1,
+      "linktype_now": 1,
+      "metacat": 9,
+      "metacat_level": 0,
+      "text": "Continuously"
+    },
+    {
+      "id": 501,
+      "linktype_max": 1,
+      "linktype_now": 1,
+      "metacat": 4,
+      "metacat_level": 1,
+      "text": "Newspapers"
+    },
+    {
+      "id": 572,
+      "linktype_max": 1,
+      "linktype_now": 1,
+      "metacat": 4,
+      "metacat_level": 0,
+      "text": "Medietype: Editorial Media"
+    },
+    {
+      "id": 575,
+      "linktype_max": 1,
+      "linktype_now": 1,
+      "metacat": 6,
+      "metacat_level": 0,
+      "text": "Mediatype: Web"
+    },
+    {
+      "id": 1226,
+      "linktype_max": 1,
+      "linktype_now": 1,
+      "metacat": 5,
+      "metacat_level": 2,
+      "text": "Oman"
+    }
+  ],
+  "screenshots": [],
+  "topics_and_entities": {
+    "topics": [
+      {
+        "label": "sport>competition discipline>cricket",
+        "mediatopic_id": "20000888",
+        "score": 0.5733
+      },
+      {
+        "label": "sport",
+        "mediatopic_id": "15000000",
+        "score": 0.555
+      },
+      {
+        "label": "lifestyle and leisure>leisure>game",
+        "mediatopic_id": "20000540",
+        "score": 0.3864
+      },
+      {
+        "label": "health>diseases and conditions>illness",
+        "mediatopic_id": "20000455",
+        "score": 0.3615
+      }
+    ],
+    "entities": {
+      "location": [
+        {
+          "entity": "Melbourne Cricket Ground",
+          "wikidata_id": "Q330136"
+        },
+        {
+          "entity": "Australia",
+          "wikidata_id": "Q408",
+          "sentiment": "Positive"
+        },
+        {
+          "entity": "Sydney",
+          "wikidata_id": "Q3130",
+          "sentiment": "Neutral"
+        }
+      ],
+      "organization": [
+        {
+          "entity": "Australia",
+          "wikidata_id": "Q408",
+          "sentiment": "Positive"
+        },
+        {
+          "entity": "News Corp Australia",
+          "wikidata_id": "Q3339152"
+        },
+        {
+          "entity": "ESPNcricinfo",
+          "wikidata_id": "Q2118845"
+        }
+      ],
+      "person": [
+        {
+          "entity": "Allan Border",
+          "wikidata_id": "Q1392194"
+        }
+      ]
+    }
+  },
+  "doc_subject": [
+    "Border telling News Corp"
+  ],
+  "doc_mentions": [],
+  "emtl_tendency": "中性",
+  "ted_score": 0.13,
+  "trace_info": {
+    "classifier": {
+      "classify_subject": {
+        "ip": "192.168.2.21",
+        "osType": "Linux",
+        "node_version": "6.9.4",
+        "host": "classifier-21",
+        "time": "2023/07/01 00:13:58 +08:00"
+      }
+    }
+  },
+  "uri": "https://timesofoman.com/article/132827-no-way-am-i-going-to-get-another-100-allan-border-reveals-he-has-parkinsons-disease",
+  "media_type": "web",
+  "uniqueId": "100658-169012",
+  "modified": "2023/07/01 00:13:58 +08:00",
+  "created": "2023/07/01 00:10:52 +08:00",
+  "media": "Times Of Oman",
+  "domain": "timesofoman.com",
+  "title": "No way am I going to get another 100: Allan Border reveals he has Parkinson's disease",
+  "body2": {
+    "matches": false
+  },
+  "summary2": {
+    "matches": false,
+    "text": "  Melbourne : Former Australian captain Allan Border revealed that he has Parkinson's disease, a progressive nervous system disorder that affects movement."
+  },
+  "imgs": [
+    "https://shabiba.eu-central-1.linodeobjects.com/2023/06/1688141233-1688141233-rmrpylwntq53.jpg"
+  ],
+  "area": [
+    "发展中国家",
+    "亚洲",
+    "阿拉伯国家",
+    "伊斯兰国家",
+    "中东国家",
+    "一带一路沿线国家"
+  ],
+  "media_paths": [
+    "/海外/其它"
+  ],
+  "rel_level": 1,
+  "rel": "9739f710-485a-4d26-ac3e-b48706a0841c"
+}

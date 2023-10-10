@@ -124,3 +124,73 @@ run();
 //     }
 //   }
 // }
+
+
+// {
+//   "track_total_hits": true,
+//   "_source": true,
+//   "query": {
+//     "bool": {
+//       "must": [
+//         {
+//           "range": {
+//             "created": {
+//               "gte": "2023/05/14 00:00:00 +08:00",
+//               "lte": "2023/05/15 23:59:59 +08:00"
+//             }
+//           }
+//         },
+//         {
+//           "query_string": {
+//             "query": "\"国安\"",
+//             "default_operator": "AND",
+//             "phrase_slop": 0,
+//             "fields": [
+//               "title"
+//             ]
+//           }
+//         }
+//       ],
+//       "must_not": [
+//         {
+//           "term": {
+//             "media_type": "comment"
+//           }
+//         },
+//         {
+//           "terms": {
+//             "art_status": [
+//               "DELETED"
+//             ]
+//           }
+//         },
+//         {
+//           "term": {
+//             "project_info.deleted": "YES"
+//           }
+//         }
+//       ],
+//       "should": []
+//     }
+//   },
+//   "from": 0,
+//   "size": 1,
+//   "sort": [
+//     {
+//       "created": {
+//         "order": "desc"
+//       }
+//     }
+//   ],
+//   "aggs": {
+//       "platform": {
+//           "terms": {
+//               "field":  "content_region_paths",
+//               "size": 20,
+//               "include": "/[^/]*/[^/]*"
+//           }
+//       }
+//   }
+// }
+
+// 正则 include 每一个 /[^/]* 就是匹配 一个 / 后的数据结构。字段的数据结构需要时 path 类型(/a/b/c)
