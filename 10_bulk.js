@@ -2,7 +2,7 @@
  * @Author: majl
  * @Date: 2023-10-12 16:13:58
  * @LastEditors: majl
- * @LastEditTime: 2023-10-12 16:14:08
+ * @LastEditTime: 2024-02-29 11:15:42
  * @FilePath: /learnES/10_bulk.js
  * @Description: 
  * 
@@ -64,6 +64,47 @@ function bulkUpdate(options) {
   return hosts.client.bulk({refresh: true, body})
     .then(() => {
       //todo 处理批量更新返回值中的错误
+      return Promise.resolve();
+    })
+}
+
+
+/**
+ * 批量更新数据
+ * @param tasks
+ * @param esResults es查询结果
+ * @returns {Promise<>}
+ */
+function batchUpdate(tasks, esResults) {
+  let body = _.chain(tasks)
+    .flatMap(item => {
+      let obj = _.find(esResults, { uri: item.uri });
+      if (!obj) {
+        return;
+      }
+      logger.info(`==> batchUpdate, uri: ${obj.uri}`)
+      let projects = buildProjects(obj.projects, item.projects);
+      return [
+        {
+          update: _.pick(obj, ["_index", "_id"])
+        },
+        {
+          doc: {
+            projects: projects,
+          }
+        }
+      ]
+    })
+    .compact()
+    .value();
+
+  console.log('==> 批量更新数据 body:', body);
+
+  return client.bulk({ refresh: true, body })
+    .then(resp => {
+      console.log("==> update result: ", JSON.stringify(resp.body));
+      // todo?
+      //  return csm.publish(body);
       return Promise.resolve();
     })
 }
