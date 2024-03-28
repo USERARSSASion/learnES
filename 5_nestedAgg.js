@@ -114,3 +114,58 @@ run();
 //     }
 //   }
 // }
+
+// {
+//   "track_total_hits": true,
+//   "query": {
+//     "bool": {
+//       "must": [
+//         {
+//           "range": {
+//             "created": {
+//               "to": "2024/03/31 23:59:59 +08:00"
+//             }
+//           }
+//         },
+//         {
+//           "terms": {
+//             "brand": [
+//               "ECOFLOW",
+//               "JACKERY",
+//               "GENEVERSE",
+//               "ANKER"
+//             ]
+//           }
+//         }
+//       ],
+//       "must_not": [],
+//       "should": []
+//     }
+//   },
+//   "from": 0,
+//   "size": 0,
+//   "aggs": {
+//     "type": {
+//       "terms": {
+//         "field": "brand"
+//       },
+//       "aggs": {
+//         "trends": {
+//           "date_histogram": {
+//             // 季度日期聚合
+//             "interval": "quarter",
+//             "field": "created",
+//             "time_zone": "+08:00"
+//           },
+//           "aggs": {
+//             "tendency": {
+//               "terms": {
+//                 "field": "tendency"
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
