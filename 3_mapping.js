@@ -1,7 +1,7 @@
 const { elasticClient } = require('./es');
 
 const projectElasticConfig = {
-  index: 'test-entities-202207',
+  index: 'ecoflow-ec',
 };
 
 async function run() {
@@ -14,7 +14,7 @@ async function run() {
   //   ...projectElasticConfig,
   //   fields: 'mark_info_paths'
   // })
-  console.log(result.body);
+  console.log(JSON.stringify(result.body));
 }
 
 run();
