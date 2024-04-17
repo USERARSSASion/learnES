@@ -93,3 +93,54 @@ Es 模糊查询， 分词的用match； 短语的用match_phrase；查询任意�
 	"_source": []
 }
 */
+/** 字段存在
+ * {
+	"track_total_hits": true,
+	"query": {
+		"bool": {
+			"must": [
+				{
+					"exists": {
+						"field": "doc_mentions"
+					}
+				}
+			],
+			"must_not": [
+				{
+					"exists": {
+						"field": "doc_subject"
+					}
+				}
+			],
+			"should": []
+		}
+	},
+	"from": 0,
+	"size": 1
+}
+ */
+/** 同时包含
+ * {
+	"track_total_hits": true,
+	"query": {
+		"bool": {
+			"must": [
+				{
+					"match": {
+						"mark_paths": "value1"
+					}
+				},
+				{
+					"match": {
+						"mark_paths": "value2"
+					}
+				}
+			],
+			"must_not": [],
+			"should": []
+		}
+	},
+	"from": 0,
+	"size": 1
+}
+ */
