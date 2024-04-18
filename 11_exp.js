@@ -2,7 +2,7 @@
  * @Author: majl
  * @Date: 2023-10-12 16:13:58
  * @LastEditors: majl
- * @LastEditTime: 2024-04-18 14:27:28
+ * @LastEditTime: 2024-04-18 14:38:42
  * @FilePath: /learnES/11_exp.js
  * @Description: 
  * 
@@ -166,25 +166,32 @@
 				"path": "product_infos"
 			},
 			"aggs": {
-				"type": {
+				"main": {
 					"terms": {
 						"field": "product_infos.type_code",
 						"include": "product_main"
 					},
 					"aggs": {
-						"level": {
-							"reverse_nested": {},
+						"type": {
+							"terms": {
+								"field": "product_infos.energy_capacity_level"
+							},
 							"aggs": {
-								"trends": {
-									"date_histogram": {
-										"interval": "month",
-										"field": "stats_day",
-										"time_zone": "+08:00"
-									},
+								"level": {
+									"reverse_nested": {},
 									"aggs": {
-										"tendency": {
-											"terms": {
-												"field": "tendency"
+										"trends": {
+											"date_histogram": {
+												"interval": "month",
+												"field": "stats_day",
+												"time_zone": "+08:00"
+											},
+											"aggs": {
+												"tendency": {
+													"terms": {
+														"field": "tendency"
+													}
+												}
 											}
 										}
 									}
