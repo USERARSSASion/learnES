@@ -2,7 +2,7 @@
  * @Author: majl
  * @Date: 2023-10-12 16:13:58
  * @LastEditors: majl
- * @LastEditTime: 2024-04-18 14:38:42
+ * @LastEditTime: 2024-04-18 15:35:09
  * @FilePath: /learnES/11_exp.js
  * @Description: 
  * 
@@ -267,4 +267,115 @@
 		}
 	}
 }
+
+{
+    "track_total_hits": true,
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "range": {
+              "stats_day": {
+                "to": "2024/03/31 23:59:59 +08:00"
+              }
+            }
+          },
+          {
+            "term": {
+              "status": "有效"
+            }
+          },
+          {
+            "terms": {
+              "brand": [
+                "ECOFLOW",
+                "JACKERY",
+                "ANKER"
+              ]
+            }
+          },
+          {
+            "terms": {
+              "products.product_paths": [
+                "/储电/移动储能",
+                "/储电/阳台储能",
+                "/发电/太阳能板",
+                "/用电/冰箱",
+                "/用电/空调"
+              ]
+            }
+          }
+        ],
+        "must_not": [],
+        "should": []
+      }
+    },
+    "from": 0,
+    "size": 0,
+    "aggs": {
+      "product_infos": {
+        "nested": {
+          "path": "product_infos"
+        },
+        "aggs": {
+          "filtered": {
+            "filter": {
+              "bool": {
+                "must": [
+                  {
+                    "terms": {
+                      "product_infos.product_paths": [
+                        "/储电/移动储能",
+                        "/储电/阳台储能",
+                        "/发电/太阳能板",
+                        "/用电/冰箱",
+                        "/用电/空调"
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "aggs": {
+              "main": {
+                "terms": {
+                  "field": "product_infos.type_code",
+                  "include": "product_main"
+                },
+                "aggs": {
+                  "type": {
+                    "terms": {
+                      "field": "product_infos.energy_capacity_level",
+                      "size": 10
+                    },
+                    "aggs": {
+                      "reverse": {
+                        "reverse_nested": {},
+                        "aggs": {
+                          "trends": {
+                            "date_histogram": {
+                              "interval": "month",
+                              "field": "stats_day",
+                              "time_zone": "+08:00"
+                            },
+                            "aggs": {
+                              "tendency": {
+                                "terms": {
+                                  "field": "tendency"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  } 
  */
