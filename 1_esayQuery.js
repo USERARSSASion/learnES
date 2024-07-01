@@ -46,6 +46,42 @@ Es 模糊查询， 分词的用match； 短语的用match_phrase；查询任意�
 
 /*
 {
+  "track_total_hits": true,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "media": "人民日报"
+          }
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "terms": {
+                  "media_type": [
+                    "paper"
+                  ]
+                }
+              },
+              {
+                "terms": {
+                  "media_platform": [
+                    "paper"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "from": 0,
+  "size": 2
+}
+{
 	"track_total_hits": true,
 	"query": {
 		"bool": {
