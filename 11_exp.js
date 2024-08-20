@@ -2,12 +2,257 @@
  * @Author: majl
  * @Date: 2023-10-12 16:13:58
  * @LastEditors: majl
- * @LastEditTime: 2024-04-18 15:35:09
+ * @LastEditTime: 2024-07-23 17:08:37
  * @FilePath: /learnES/11_exp.js
  * @Description: 
  * 
  */
-
+/**
+ * {
+    "track_total_hits": false,
+    "_source": true,
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "range": {
+              "created": {
+                "gte": "2024/01/01 00:00:00 +08:00",
+                "lte": "2024/01/23 23:59:59 +08:00"
+              }
+            }
+          },
+          {
+            "terms": {
+              "source_type": [
+                "CN Social"
+              ]
+            }
+          }
+        ],
+        "must_not": [
+          {
+            "terms": {
+              "media_type": [
+                "product",
+                "utr",
+                "transaction"
+              ]
+            }
+          },
+          {
+            "term": {
+              "project_info.deleted": "YES"
+            }
+          }
+        ],
+        "should": []
+      }
+    },
+    "from": 0,
+    "size": 0,
+    "aggs": {
+      "Positive": {
+        "terms": {
+          "field": "project_info.tendency",
+          "include": "正面"
+        },
+        "aggs": {
+          "title_tokens_nested": {
+            "nested": {
+              "path": "title_tokens_nested"
+            },
+            "aggs": {
+              "words": {
+                "significant_terms": {
+                  "field": "title_tokens_nested.word",
+                  "size": 50,
+                  "background_filter": {
+                    "bool": {
+                      "must": [
+                        {
+                          "range": {
+                            "created": {
+                              "gte": "2023/06/10 00:00:01 +08:00",
+                              "lte": "2024/07/23 23:59:59 +08:00"
+                            }
+                          }
+                        },
+                        {
+                          "terms": {
+                            "source_type": [
+                              "CN Social"
+                            ]
+                          }
+                        }
+                      ],
+                      "must_not": [
+                        {
+                          "terms": {
+                            "media_type": [
+                              "product",
+                              "utr",
+                              "transaction"
+                            ]
+                          }
+                        },
+                        {
+                          "term": {
+                            "project_info.deleted": "YES"
+                          }
+                        }
+                      ],
+                      "should": []
+                    }
+                  }
+                },
+                "aggs": {
+                  "frq": {
+                    "sum": {
+                      "field": "title_tokens_nested.frq"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Negative": {
+        "terms": {
+          "field": "project_info.tendency",
+          "include": "负面"
+        },
+        "aggs": {
+          "title_tokens_nested": {
+            "nested": {
+              "path": "title_tokens_nested"
+            },
+            "aggs": {
+              "words": {
+                "significant_terms": {
+                  "field": "title_tokens_nested.word",
+                  "size": 50,
+                  "background_filter": {
+                    "bool": {
+                      "must": [
+                        {
+                          "range": {
+                            "created": {
+                              "gte": "2023/06/10 00:00:01 +08:00",
+                              "lte": "2024/07/23 23:59:59 +08:00"
+                            }
+                          }
+                        },
+                        {
+                          "terms": {
+                            "source_type": [
+                              "CN Social"
+                            ]
+                          }
+                        }
+                      ],
+                      "must_not": [
+                        {
+                          "terms": {
+                            "media_type": [
+                              "product",
+                              "utr",
+                              "transaction"
+                            ]
+                          }
+                        },
+                        {
+                          "term": {
+                            "project_info.deleted": "YES"
+                          }
+                        }
+                      ],
+                      "should": []
+                    }
+                  }
+                },
+                "aggs": {
+                  "frq": {
+                    "sum": {
+                      "field": "title_tokens_nested.frq"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Neutral": {
+        "terms": {
+          "field": "project_info.tendency",
+          "include": "中性"
+        },
+        "aggs": {
+          "title_tokens_nested": {
+            "nested": {
+              "path": "title_tokens_nested"
+            },
+            "aggs": {
+              "words": {
+                "significant_terms": {
+                  "field": "title_tokens_nested.word",
+                  "size": 50,
+                  "background_filter": {
+                    "bool": {
+                      "must": [
+                        {
+                          "range": {
+                            "created": {
+                              "gte": "2023/06/10 00:00:01 +08:00",
+                              "lte": "2024/07/23 23:59:59 +08:00"
+                            }
+                          }
+                        },
+                        {
+                          "terms": {
+                            "source_type": [
+                              "CN Social"
+                            ]
+                          }
+                        }
+                      ],
+                      "must_not": [
+                        {
+                          "terms": {
+                            "media_type": [
+                              "product",
+                              "utr",
+                              "transaction"
+                            ]
+                          }
+                        },
+                        {
+                          "term": {
+                            "project_info.deleted": "YES"
+                          }
+                        }
+                      ],
+                      "should": []
+                    }
+                  }
+                },
+                "aggs": {
+                  "frq": {
+                    "sum": {
+                      "field": "title_tokens_nested.frq"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+ */
 /**
  * path 层级聚合
  * {
