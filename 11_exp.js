@@ -2,7 +2,7 @@
  * @Author: majl
  * @Date: 2023-10-12 16:13:58
  * @LastEditors: majl
- * @LastEditTime: 2024-07-23 17:08:37
+ * @LastEditTime: 2025-01-08 15:04:44
  * @FilePath: /learnES/11_exp.js
  * @Description: 
  * 
@@ -622,5 +622,63 @@
         }
       }
     }
-  } 
+  }
+  {
+    "track_total_hits": true,
+    "query": {
+      "bool": {
+        "minimum_should_match": 1,
+        "must": [
+          {
+            "range": {
+              "comments": {
+                "gt": 0
+              }
+            }
+          },
+          {
+            "term": {
+              "doc_type": "POST"
+            }
+          },
+          {
+            "term": {
+              "status": "有效"
+            }
+          }
+        ],
+        "must_not": [],
+        "should": [
+          {
+            "bool": {
+              "must": [
+                {
+                  "term": {
+                    "es_comment_num": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "bool": {
+              "must_not": [
+                {
+                  "exists": {
+                    "field": "es_comment_num"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "from": 0,
+    "size": 1,
+    "aggs": {},
+    "sort": [],
+    "_source": []
+    }
+  }
  */
