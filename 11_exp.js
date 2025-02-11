@@ -2,7 +2,7 @@
  * @Author: majl
  * @Date: 2023-10-12 16:13:58
  * @LastEditors: majl
- * @LastEditTime: 2025-01-08 15:04:44
+ * @LastEditTime: 2025-01-17 15:06:27
  * @FilePath: /learnES/11_exp.js
  * @Description: 
  * 
@@ -29,7 +29,7 @@
               ]
             }
           }
-        ],
+        ],`
         "must_not": [
           {
             "terms": {
