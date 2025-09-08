@@ -1,0 +1,13 @@
+用户场景-使用场景L1/移储设备使用	nps_ua_product_scene_use_count
+用户场景-使用场景L1/移储设备使用趋势	nps_ua_product_scene_use_trend
+用户场景-使用场景L1/充电宝产品使用	nps_ua_product_scene_cdb_use_count
+用户场景-使用场景L1/充电宝产品使用趋势	nps_ua_product_scene_cdb_use_trend
+用户场景-使用场景L2/场景1	nps_ua_product_scene_l2_1_count
+用户场景-使用场景L2/场景1趋势	nps_ua_product_scene_l2_1_trend
+用户场景-使用场景L2/场景2	nps_ua_product_scene_l2_2_count
+用户场景-使用场景L2/场景2趋势	nps_ua_product_scene_l2_2_trend
+用电设备-充电宝用电设备/居家、办公场景使用设备	nps_ua_product_cdb_scene_use_count
+用电设备-充电宝用电设备/公共场合使用设备	nps_ua_product_cdb_scene_public_use_count
+用电设备-充电宝用电设备/日常通勤、交通使用设备	nps_ua_product_cdb_scene_traffic_use_count
+用电设备-充电宝用电设备/商务出差使用设备	nps_ua_product_cdb_scene_official_use_count
+用电设备-充电宝用电设备/休闲旅行使用设备	nps_ua_product_cdb_scene_journey_use_count

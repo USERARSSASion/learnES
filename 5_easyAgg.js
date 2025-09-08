@@ -25,6 +25,21 @@ async function run() {
         }
       },
       "aggs": {
+        "comments_over_time": {
+          "date_histogram": {
+            "field": "modified",
+            "interval": "day",
+            "time_zone": "+08:00",
+            "min_doc_count": 0
+          },
+          "aggs": {
+            "cumulative_count": {
+              "cumulative_sum": {
+                "buckets_path": "_count"
+              }
+            }
+          }
+        },
         // 倾向分布数据、媒体分布数据等
         "tendency": {
           "terms": {
